@@ -24,8 +24,6 @@ def pag_inicial():
 	st.markdown("### Pedro Oliveira Annoni Farah - Trabalho de Conclusão de Curso  ")
 	st.markdown("---")
 	st.markdown("Esta aplicação foi desenvolvida para que fosse possível implantar e testar um modelo de predição construído para se estimar o teor de `Gás Oxigênio` presente nos fumos de uma reação de `Combustão` em uma `Caldeira Industrial` de uma siderúrgica real. ")
-	st.markdown("Aqui você poderá navegar entre os tópicos e entender o funcionamento do código!")
-	st.markdown("O objetivo deste app  é fornecer mais algumas informações de como foi realizada a programação do algoritmo criado para o teste técnico da Vetta!  ")
 	st.markdown("---")
 	st.markdown("")
 	st.markdown("### ⚡ Sobre a proposta")
