@@ -1,5 +1,5 @@
 keras
-matplotlib==3.2.1
+matplotlib
 numpy==1.19.5
 pandas==1.1.5
 streamlit
