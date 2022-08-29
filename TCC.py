@@ -121,7 +121,7 @@ if (add_sidebar == 'Base'):
 
 
 if (add_sidebar == 'Previsão e testes'):
-	st.title("🔍 Funcionamento!")
+	st.title("🔍 Previsão e testes!")
 	st.markdown("---")
 	'''
 	O funcionamento do teste é bastante simples e intuitivo. É necessário que você informe os valoers para as seguintes variáveis:
