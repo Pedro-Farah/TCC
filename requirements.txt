@@ -1,7 +1,7 @@
-keras==2.0.0
+keras
 matplotlib==3.2.1
 numpy==1.19.5
 pandas==1.1.5
 streamlit==0.82.0
 plotly==4.12.0
-typing-extensions==3.10.0.0
+typing-extensions
