@@ -140,12 +140,12 @@ if (add_sidebar == 'Previsão e testes'):
 
 	previsor = np.array([[GAF,GCO,GN,N2,CONSESP]])
 	if st.button("Clique aqui para calcular a quantidade vapor esperada!"):
-		arquivo = open('./regressor.json', 'r')
+		arquivo = open('./Regressorr.json', 'r')
 		estrutura = arquivo.read()
 		arquivo.close()
 
 		regressor = model_from_json(estrutura)
-		regressor.load_weights('./regressor.h5')
+		regressor.load_weights('./Regressorr.h5')
 		resultado = regressor.predict(previsor)
 		st.info(resultado[0][0])
 
