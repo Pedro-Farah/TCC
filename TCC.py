@@ -200,8 +200,12 @@ if (add_sidebar == 'Previsão e testes'):
 					plt.title("Valores estimados ao longo do tempo")
 					plt.xlabel("Tempo")
 					plt.ylabel("Quantidade de Vapor")
-					subfig.add_trace(go.Scatter(x = x_vals, y = y_vals))
-					subfig.add_trace(go.Scatter(x = x_vals, y = y_vals2))
+					if i == 0:
+						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals, name = "Previstos"))
+						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals2, name = "Reais"))
+					else:
+						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals, showlegend = False))
+						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals2, showlegend = False))
 					subfig.update_xaxes(title_text = "Tempo (minuto)")
 					
 					subfig.update_yaxes(title_text = "Quantidade de Vapor")
