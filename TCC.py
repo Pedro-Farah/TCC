@@ -201,7 +201,7 @@ if (add_sidebar == 'Previsão e testes'):
 					plt.xlabel("Tempo")
 					plt.ylabel("Quantidade de Vapor")
 					if i == 0:
-						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals, name = "Previstos", colorway = "blue"))
+						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals, name = "Previstos",marker= {'color': 'blue'}))
 						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals2, name = "Reais", colorway = "orange"))
 					else:
 						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals, showlegend = False, colorway = "blue"))
