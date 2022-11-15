@@ -161,7 +161,9 @@ if (add_sidebar == 'Previsão e testes'):
 				resultados = []
 				x_vals = []
 				y_vals = []
+				y_vals2 = []
 				previsores = data.iloc[0:1440,1:5].values
+				valorReal = data.iloc[0:1440,5].values;
 				arquivo = open('./Regressorr.json', 'r')
 				estrutura = arquivo.read()
 				arquivo.close()
@@ -169,11 +171,14 @@ if (add_sidebar == 'Previsão e testes'):
 				regressor.load_weights('./Regressorr.h5')
 				previsoes = regressor.predict(previsores)
 				previsoes = pd.DataFrame(previsoes, columns = ['Previsão'])
+				valorReal = pd.DataFrame(valorReal, columns = ['Vapor'])
 				time1 = data.iloc[0:1440,0].values
 				time1 = pd.DataFrame(time1, columns = ['Data'])
 				df  = pd.concat([time1,previsoes], axis=1)
+				df2 = pd.concat([time1,valorReal], axis=1)
 				x = df['Data'].values
 				y = df['Previsão'].values
+				y2 = df2['Vapor'].values
 				index = count()
 				plt.style.use('fivethirtyeight')
 				##the_plot = st.pyplot(plt)
@@ -182,9 +187,11 @@ if (add_sidebar == 'Previsão e testes'):
 				def animate (i):
 					x_vals.append(x[next(index)])
 					y_vals.append(y[next(index)])
+					y_vals2.append(y2[next(index)])
 
 					plt.cla()
 					plt.plot(x_vals,y_vals)
+					plt.plot(x_vals,y_vals2)
 					plt.title("Valores estimados ao longo do tempo")
 					plt.xlabel("Tempo")
 					plt.ylabel("Quantidade de Vapor")
@@ -201,7 +208,7 @@ if (add_sidebar == 'Previsão e testes'):
 					the_plot.plotly_chart(fig)
 				for i in range(1000):
 					animate(i)
-					time.sleep(5)
+					time.sleep(10)
 				#ani = FuncAnimation(plt.gcf(), animate, interval = 10000)
 				
 
