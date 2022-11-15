@@ -202,10 +202,10 @@ if (add_sidebar == 'Previsão e testes'):
 					plt.ylabel("Quantidade de Vapor")
 					if i == 0:
 						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals, name = "Previstos",marker= {'color': 'blue'}))
-						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals2, name = "Reais", colorway = "orange"))
+						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals2, name = "Reais",marker= {'color': 'orange'}))
 					else:
-						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals, showlegend = False, colorway = "blue"))
-						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals2, showlegend = False, colorway = "orange"))
+						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals, showlegend = False, marker= {'color': 'blue'}))
+						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals2, showlegend = False,marker= {'color': 'orange'}))
 					subfig.update_xaxes(title_text = "Tempo (minuto)")
 					
 					subfig.update_yaxes(title_text = "Quantidade de Vapor")
