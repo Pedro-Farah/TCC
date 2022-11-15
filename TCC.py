@@ -138,7 +138,7 @@ if (add_sidebar == 'Previsão e testes'):
 	st.markdown("Agora, escolher a vazão de Gás Nitrogênio através do slider:  ")
 	N2 = st.slider('Vazão de Gás Nitrogênio (Nm3/h)', 0,15000)
 
-	previsor = np.array([[GAF,GCO,GN,N2,CONSESP]])
+	previsor = np.array([[GAF,GCO,GN,N2]])
 	if st.button("Clique aqui para calcular a quantidade vapor esperada!"):
 		arquivo = open('./Regressorr.json', 'r')
 		estrutura = arquivo.read()
