@@ -23,7 +23,7 @@ def pag_inicial():
 	st.markdown("---")
 	st.markdown("### Pedro Oliveira Annoni Farah - Trabalho de Conclusão de Curso  ")
 	st.markdown("---")
-	st.markdown("Esta aplicação foi desenvolvida para que fosse possível implantar e testar um modelo de predição construído para se estimar o teor de `Gás Oxigênio` presente nos fumos de uma reação de `Combustão` em uma `Caldeira Industrial` de uma siderúrgica real. ")
+	st.markdown("Esta aplicação foi desenvolvida para que fosse possível implantar e testar um modelo de predição construído para se estimar o teor de vapor gerado a partir de uma reação de `Combustão` em uma `Caldeira Industrial` de uma siderúrgica real. ")
 	st.markdown("---")
 	st.markdown("")
 	st.markdown("### ⚡ Sobre a proposta")
@@ -36,7 +36,7 @@ def pag_inicial():
 	st.info("Os dados foram coletados a partir de um banco de dados de Séries Temporais de uma siderúgica real entre os dias 1 e 8 de Agosto de 2022. Eles são oriundos de medidores instalados em uma Caldeira Industrial específica da Central Termoelétrica desta siderúrgica. ")
 	st.markdown("### 💻 Sobre o algoritmo")
 	st.markdown("")
-	st.info("Para o desenvolvimento do Sensor Virtual foi desenvlovido uma Rede Neural Aritificial capaz de predizer um valor de saída de interesse, no caso, o teor de oxigênio presente nos fumos a partir das variaáveis de entrada coletadas. ")
+	st.info("Para o desenvolvimento do Sensor Virtual foi desenvlovido uma Rede Neural Aritificial capaz de predizer um valor de saída de interesse, no caso, a quantidade de vapor gerada a partir das variaáveis de entrada coletadas. ")
 
 	st.markdown("<div align='center'><br>"
                 "<img src='https://img.shields.io/badge/Feito%20COM-PYTHON%20-red?style=for-the-badge'"
@@ -64,8 +64,6 @@ if (add_sidebar == 'Base'):
 	- [x]  Gás de Coqueria - GCO (Nm3/h)
 	- [x]  Gás Natural - GN (Nm3/h)
 	- [x]  Gás Nitrogênio - N2 (Nm3/h)
-	- [x]  Consumo Específico (MCal/t)
-
 
 	'''
 	st.markdown("")
@@ -75,7 +73,7 @@ if (add_sidebar == 'Base'):
 
 	Abaixo é possível escolher uma das variáveis de entrada para visualizar o seu comportamento durante os dias 1 e 8 de agosto de 2022: 
 	'''
-	option = st.selectbox("Qual variável gostaria de visualizar?",("GAF","GCO","GN","N2","Consumo Específico")) 
+	option = st.selectbox("Qual variável gostaria de visualizar?",("GAF","GCO","GN","N2")) 
 	st.markdown("")
 	if (option == "GAF"):
 		image = Image.open('GAFIMG.png')
@@ -89,10 +87,6 @@ if (add_sidebar == 'Base'):
 	if (option == "N2"):
 		image = Image.open('N2IMG.png')
 		st.image(image, caption='Gás Nitrogênio (Nm3/h)')
-	if (option == "Consumo Específico"):
-		image = Image.open('CONSUMOESPIMG.png')
-		st.image(image, caption='Consumo Específico (MCal/t)')
-
     
 	st.markdown("Um parâmetro interessante que pode ser visualizado é a correlação entre as variáveis de entrada e saída. Neste caso, a variável de saída está sendo considerada como a quantidade de vapor, mas ao fim será o teor de Oxigênio: ")
 	image = Image.open('CORR.png')
@@ -112,11 +106,9 @@ if (add_sidebar == 'Base'):
 
 	'''
 	st.markdown("")
-	st.markdown("Para um treinamento com 200 épocas e tamanho do Lote igual a 50, obteve-se os valores que podem ser comparados com os valores reais no gráfico abaixo:  ")
+	st.markdown("Para um treinamento com 30 épocas e tamanho do Lote igual a 50, obteve-se os valores que podem ser comparados com os valores reais no gráfico abaixo:  ")
 	image = Image.open('RESCOMP.png')
 	st.image(image, caption='Comparação entre valores previstos e reais')
-	
-	
 
 
 
@@ -130,8 +122,7 @@ if (add_sidebar == 'Previsão e testes'):
  2. Fluxo de Gás de Coqueria
  3. Fluxo de Gás Natural 
  4. Fluxo de Gás Nitrogênio
- 5. Consumo Específico
- 6. Fluxo de Gás de Alto Forno
+
 	'''
 	st.markdown("---")
 	st.markdown("### Gás de Alto Forno")
@@ -146,9 +137,7 @@ if (add_sidebar == 'Previsão e testes'):
 	st.markdown("### Gás Nitrogênio")
 	st.markdown("Agora, escolher a vazão de Gás Nitrogênio através do slider:  ")
 	N2 = st.slider('Vazão de Gás Nitrogênio (Nm3/h)', 0,15000)
-	st.markdown("### Consumo Específico")
-	st.markdown("Para finalizar, informe o valor do Consumo Específico:  ")
-	CONSESP = st.number_input('Consumo Específico (Mcal/t)')
+
 	previsor = np.array([[GAF,GCO,GN,N2,CONSESP]])
 	if st.button("Clique aqui para calcular a quantidade vapor esperada!"):
 		arquivo = open('./regressor.json', 'r')
