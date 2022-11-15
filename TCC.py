@@ -174,7 +174,7 @@ if (add_sidebar == 'Previsão e testes'):
 				regressor.load_weights('./Regressorr.h5')
 				previsoes = regressor.predict(previsores)
 				previsoes = pd.DataFrame(previsoes, columns = ['Previsão'])
-				st.wirte(previsoes)
+				st.write(previsoes)
 				valorReal = pd.DataFrame(valorReal, columns = ['Vapor'])
 				st.write(valorReal)
 				time1 = data.iloc[0:1440,0].values
