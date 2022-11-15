@@ -204,7 +204,7 @@ if (add_sidebar == 'Previsão e testes'):
 						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals, name = "Previstos",marker= {'color': '#636EFA'}))
 						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals2, name = "Reais",marker= {'color': 'orange'}))
 					else:
-						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals, showlegend = False, marker= {'color': 'blue'}))
+						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals, showlegend = False, marker= {'color': '#636EFA'}))
 						subfig.add_trace(go.Scatter(x = x_vals, y = y_vals2, showlegend = False,marker= {'color': 'orange'}))
 					subfig.update_xaxes(title_text = "Tempo (minuto)")
 					
