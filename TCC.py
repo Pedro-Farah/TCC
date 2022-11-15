@@ -225,7 +225,7 @@ if (add_sidebar == 'Previsão e testes'):
 					#fig.show()
 					#plt.tight_layout()
 					#the_plot.pyplot(plt)
-					the_plot.plotly_chart(fig)
+					the_plot.plotly_chart(subfig)
 					#the_plot2.plotly_chart(fig2)
 				for i in range(1000):
 					animate(i)
