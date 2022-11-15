@@ -162,11 +162,11 @@ if (add_sidebar == 'Previsão e testes'):
 				x_vals = []
 				y_vals = []
 				previsores = data.iloc[0:1440,1:5].values
-				arquivo = open('./regressor.json', 'r')
+				arquivo = open('./Regressorr.json', 'r')
 				estrutura = arquivo.read()
 				arquivo.close()
 				regressor = model_from_json(estrutura)
-				regressor.load_weights('./regressor.h5')
+				regressor.load_weights('./Regressorr.h5')
 				previsoes = regressor.predict(previsores)
 				previsoes = pd.DataFrame(previsoes, columns = ['Previsão'])
 				time1 = data.iloc[0:1440,0].values
