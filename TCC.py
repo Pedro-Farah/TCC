@@ -200,8 +200,8 @@ if (add_sidebar == 'Previsão e testes'):
 					plt.title("Valores estimados ao longo do tempo")
 					plt.xlabel("Tempo")
 					plt.ylabel("Quantidade de Vapor")
-					subfig.add_trace(go.Scatter(x = x_vals, y = y_vals, name = "Previsões"))
-					subfig.add_trace(go.Scatter(x = x_vals, y = y_vals2, name = "Reais"))
+					subfig.add_trace(go.Scatter(x = x_vals, y = y_vals))
+					subfig.add_trace(go.Scatter(x = x_vals, y = y_vals2))
 					subfig.update_xaxes(title_text = "Tempo (minuto)")
 					
 					subfig.update_yaxes(title_text = "Quantidade de Vapor")
@@ -215,10 +215,10 @@ if (add_sidebar == 'Previsão e testes'):
 					#subfig.layout.yaxis.title = "Quantidade de Vapor"
 					#subfig.layout.xaxis.title = "Tempo (minuto)"
 					#subfig.layout.yaxis.title = "Quantidade de Vapor"
-					##fig.update_traces(mode='markers+lines')
-					##fig.update_layout(
-    					##xaxis_title="Tempo (minuto)",
-    					##yaxis_title="Quantidade de Vapor",
+					subfig.update_traces(mode='markers+lines')
+					subfig.update_layout(
+    					xaxis_title="Tempo (minuto)",
+    					yaxis_title="Quantidade de Vapor",
     					##)
 					#subfig.for_each_trace(lambda t: t.update(line = dict(color = t.marker.color)))
 
