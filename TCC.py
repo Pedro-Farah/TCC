@@ -165,6 +165,7 @@ if (add_sidebar == 'Previsão e testes'):
 				y_vals = []
 				y_vals2 = []
 				previsores = data.iloc[0:1440,1:5].values
+				st.write(previsores)
 				valorReal = data.iloc[0:1440,5].values;
 				arquivo = open('./Regressorr.json', 'r')
 				estrutura = arquivo.read()
@@ -173,9 +174,12 @@ if (add_sidebar == 'Previsão e testes'):
 				regressor.load_weights('./Regressorr.h5')
 				previsoes = regressor.predict(previsores)
 				previsoes = pd.DataFrame(previsoes, columns = ['Previsão'])
+				st.wirte(previsoes)
 				valorReal = pd.DataFrame(valorReal, columns = ['Vapor'])
+				st.write(valorReal)
 				time1 = data.iloc[0:1440,0].values
 				time1 = pd.DataFrame(time1, columns = ['Data'])
+				st.write(time1)
 				df  = pd.concat([time1,previsoes], axis=1)
 				df2 = pd.concat([time1,valorReal], axis=1)
 				x = df['Data'].values
