@@ -11,6 +11,7 @@ from itertools import count
 import streamlit.components.v1 as components
 import time
 import plotly.express as px
+from plotly.subplots import make_subplots
 
 
 # Configurando o título
@@ -183,9 +184,10 @@ if (add_sidebar == 'Previsão e testes'):
 				plt.style.use('fivethirtyeight')
 				##the_plot = st.pyplot(plt)
 				fig = px.line()
-				fig2 = px.line()
-				the_plot = st.plotly_chart(fig)
-				the_plot2 = st.plotly_chart(fig)
+				##fig2 = px.line()
+				
+				subfig = make_subplots(specs=[[{"secondary_y":False}]])
+				the_plot = st.plotly_chart(subfig)
 				def animate (i):
 					x_vals.append(x[next(index)])
 					y_vals.append(y[next(index)])
@@ -198,23 +200,24 @@ if (add_sidebar == 'Previsão e testes'):
 					plt.xlabel("Tempo")
 					plt.ylabel("Quantidade de Vapor")
 					fig = px.line(x = x_vals, y = y_vals, title = "Previsões ao longo do tempo")
-					fig2 = px.line(x = x_vals, y = y_vals2, title = "Previsões ao longo do tempo")
-					fig.update_traces(mode='markers+lines')
-					fig.update_layout(
-    					xaxis_title="Tempo (minuto)",
-    					yaxis_title="Quantidade de Vapor",
-    					)
-					fig2.update_traces(mode='markers+lines')
-					fig2.update_layout(
-    					xaxis_title="Tempo (minuto)",
-    					yaxis_title="Quantidade de Vapor",
-    					)
+					fig2 = px.line(x = x_vals, y = y_vals2)
+					fig2.update_traces(yaxis = "y2")
+					
+					subfig.add_traces(fig.data + fig2.data)
+					subfig.layout.xaxis.title = "Tempo (minuto)"
+					subfig.layout.yaxis.title = "Quantidade de Vapor"
+					##fig.update_traces(mode='markers+lines')
+					##fig.update_layout(
+    					##xaxis_title="Tempo (minuto)",
+    					##yaxis_title="Quantidade de Vapor",
+    					##)
+					subfig.for_each_trace(lambda t: t.update(line = dict(color = t.marker.color)))
 
 					#fig.show()
 					#plt.tight_layout()
 					#the_plot.pyplot(plt)
-					the_plot.plotly_chart(fig)
-					the_plot2.plotly_chart(fig2)
+					the_plot.plotly_chart(subfig)
+					#the_plot2.plotly_chart(fig2)
 				for i in range(1000):
 					animate(i)
 					time.sleep(10)
