@@ -194,9 +194,9 @@ if (add_sidebar == 'Previsão e testes'):
 				subfig = make_subplots(specs=[[{"secondary_y":True}]])
 				the_plot = st.plotly_chart(subfig)
 				def animate (i):
-					x_vals.append(x[next(index)])
-					y_vals.append(y[next(index)])
-					y_vals2.append(y2[next(index)])
+					x_vals.append(x[i])
+					y_vals.append(y[i])
+					y_vals2.append(y2[i])
 
 					plt.cla()
 					plt.plot(x_vals,y_vals)
