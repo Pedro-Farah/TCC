@@ -161,7 +161,7 @@ if (add_sidebar == 'Previsão e testes'):
 				resultados = []
 				x_vals = []
 				y_vals = []
-				previsores = data.iloc[0:1440,1:6].values
+				previsores = data.iloc[0:1440,1:5].values
 				arquivo = open('./regressor.json', 'r')
 				estrutura = arquivo.read()
 				arquivo.close()
