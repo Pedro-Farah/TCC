@@ -227,6 +227,8 @@ if (add_sidebar == 'Previsão e testes'):
 					subfig.update_layout(
     					xaxis_title="Tempo (minuto)",
     					yaxis_title="Quantidade de Vapor",
+					width = 500,
+					height = 800
     					)
 					#subfig.for_each_trace(lambda t: t.update(line = dict(color = t.marker.color)))
 
